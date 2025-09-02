@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import express, { Request, Response } from "express";
 import authRoutes from "./routes/auth.routes";
+import userRoutes from "./routes/user.routes";
 
 // Load environment variables early
 dotenv.config();
@@ -13,6 +14,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/users", userRoutes);
 
 app.get("/", (_req: Request, res: Response) => {
   res.send("Hello World 🌍");
